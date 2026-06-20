@@ -32,7 +32,7 @@
 |---|---|---|---|
 | 1 | Neural Cloud | ⬜ Planned | — |
 | 2 | Quantum Agent | ⬜ Planned | — |
-| 3 | AgentOS | ⬜ Planned | — |
+| 3 | AgentOS | 🔧 In Progress | — |
 | 4 | Synthetic Workforce | ⬜ Planned | — |
 | 5 | AI Workspace | ⬜ Planned | — |
 | 6 | Cortex API | ⬜ Planned | — |
@@ -163,8 +163,8 @@
 | Status | Count |
 |---|---|
 | ✅ Complete | 0 |
-| 🔧 In Progress | 0 |
-| ⬜ Planned | 60 |
+| 🔧 In Progress | 1 |
+| ⬜ Planned | 59 |
 | ❌ Rejected | 0 |
 | **Total** | **60** |
 
