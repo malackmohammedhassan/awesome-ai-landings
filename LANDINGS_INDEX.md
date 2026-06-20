@@ -32,7 +32,7 @@
 |---|---|---|---|
 | 1 | Neural Cloud | ⬜ Planned | — |
 | 2 | Quantum Agent | ⬜ Planned | — |
-| 3 | AgentOS | 🔧 In Progress | — |
+| 3 | **AgentOS** | ✅ **Complete** | [`ai-saas/agentos/`](ai-saas/agentos/) |
 | 4 | Synthetic Workforce | ⬜ Planned | — |
 | 5 | AI Workspace | ⬜ Planned | — |
 | 6 | Cortex API | ⬜ Planned | — |
@@ -41,7 +41,7 @@
 | 9 | PromptForge | ⬜ Planned | — |
 | 10 | Lumen AI | ⬜ Planned | — |
 
-**Completed:** 0 / 10
+**Completed:** 1 / 10 — ✅ AgentOS (benchmark page)
 
 ---
 
@@ -162,8 +162,8 @@
 
 | Status | Count |
 |---|---|
-| ✅ Complete | 0 |
-| 🔧 In Progress | 1 |
+| ✅ Complete | 1 |
+| 🔧 In Progress | 0 |
 | ⬜ Planned | 59 |
 | ❌ Rejected | 0 |
 | **Total** | **60** |
