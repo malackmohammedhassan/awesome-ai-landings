@@ -1,16 +1,17 @@
 # Landings Index
 
 > Master catalog of all landing pages in this repository.
+> Organized by design pattern, not company name.
 
 ---
 
 ## How to Read
 
 ```
-[Status Icon] [Name] — [Tagline]
-↳ Folder: category/name/
-↳ Preview: [link to live preview or screenshot]
-↳ Prompt: [link to prompt.md]
+[Status] [Pattern] — [Tagline]
+↳ Folder: categories/category/pattern/
+↳ Preview: preview.png in folder
+↳ Prompt: prompt.md in folder
 ```
 
 **Status Icons:**
@@ -28,28 +29,91 @@
 
 > 10 pages — AI products, agents, platforms, infrastructure
 
-| # | Name | Status | Preview |
+| # | Design Pattern | Status | Preview |
 |---|---|---|---|
-| 1 | Neural Cloud | ⬜ Planned | — |
-| 2 | Quantum Agent | ⬜ Planned | — |
-| 3 | **AgentOS** | ✅ **Complete** | [`ai-saas/agentos/`](ai-saas/agentos/) |
-| 4 | Synthetic Workforce | ⬜ Planned | — |
-| 5 | AI Workspace | ⬜ Planned | — |
-| 6 | Cortex API | ⬜ Planned | — |
-| 7 | DeepTrain | ⬜ Planned | — |
-| 8 | VectorMind | ⬜ Planned | — |
-| 9 | PromptForge | ⬜ Planned | — |
-| 10 | Lumen AI | ⬜ Planned | — |
+| 1 | **Operating System** | ✅ **Complete** | [`categories/ai-saas/operating-system/`](categories/ai-saas/operating-system/) |
+| 2 | Swarm Network | ⬜ Planned | — |
+| 3 | Command Center | ⬜ Planned | — |
+| 4 | Autonomous City | ⬜ Planned | — |
+| 5 | Neural Engine | ⬜ Planned | — |
+| 6 | Agent Mesh | ⬜ Planned | — |
+| 7 | Cortex API | ⬜ Planned | — |
+| 8 | Vector Space | ⬜ Planned | — |
+| 9 | Inference Grid | ⬜ Planned | — |
+| 10 | Pipeline Studio | ⬜ Planned | — |
 
-**Completed:** 1 / 10 — ✅ AgentOS (benchmark page)
+**Completed:** 1 / 10 — ✅ Operating System *(benchmark page)*
 
 ---
 
 ## Phase 2: Coffee
 
-> 10 pages — cafés, roasters, coffee brands, coffee tech
+> 10 pages — cafés, roasters, coffee culture
 
-| # | Name | Status | Preview |
+| # | Design Pattern | Status | Preview |
+|---|---|---|---|
+| 1 | Luxury Origin | ⬜ Planned | — |
+| 2 | Volcanic Roast | ⬜ Planned | — |
+| 3 | Mountain Estate | ⬜ Planned | — |
+| 4 | — | ⬜ Planned | — |
+| 5 | — | ⬜ Planned | — |
+| 6 | — | ⬜ Planned | — |
+| 7 | — | ⬜ Planned | — |
+| 8 | — | ⬜ Planned | — |
+| 9 | — | ⬜ Planned | — |
+| 10 | — | ⬜ Planned | — |
+
+**Completed:** 0 / 10
+
+---
+
+## Phase 3: Fashion & Luxury
+
+> 10 pages — luxury goods, apparel, accessories, watches
+
+| # | Design Pattern | Status | Preview |
+|---|---|---|---|
+| 1 | Luxury Watch | ⬜ Planned | — |
+| 2 | Sneaker Drop | ⬜ Planned | — |
+| 3 | Streetwear | ⬜ Planned | — |
+| 4 | — | ⬜ Planned | — |
+| 5 | — | ⬜ Planned | — |
+| 6 | — | ⬜ Planned | — |
+| 7 | — | ⬜ Planned | — |
+| 8 | — | ⬜ Planned | — |
+| 9 | — | ⬜ Planned | — |
+| 10 | — | ⬜ Planned | — |
+
+**Completed:** 0 / 10
+
+---
+
+## Phase 4: Automotive
+
+> 10 pages — hypercars, EVs, racing, transport
+
+| # | Design Pattern | Status | Preview |
+|---|---|---|---|
+| 1 | Hypercar | ⬜ Planned | — |
+| 2 | EV Future | ⬜ Planned | — |
+| 3 | Racing | ⬜ Planned | — |
+| 4 | — | ⬜ Planned | — |
+| 5 | — | ⬜ Planned | — |
+| 6 | — | ⬜ Planned | — |
+| 7 | — | ⬜ Planned | — |
+| 8 | — | ⬜ Planned | — |
+| 9 | — | ⬜ Planned | — |
+| 10 | — | ⬜ Planned | — |
+
+**Completed:** 0 / 10
+
+---
+
+## Phase 5: Fintech
+
+> 10 pages — banking, investing, payments, crypto
+
+| # | Design Pattern | Status | Preview |
 |---|---|---|---|
 | 1 | — | ⬜ Planned | — |
 | 2 | — | ⬜ Planned | — |
@@ -66,74 +130,11 @@
 
 ---
 
-## Phase 3: Fintech
-
-> 10 pages — banking, investing, payments, insurance, crypto
-
-| # | Name | Status | Preview |
-|---|---|---|---|
-| 1 | — | ⬜ Planned | — |
-| 2 | — | ⬜ Planned | — |
-| 3 | — | ⬜ Planned | — |
-| 4 | — | ⬜ Planned | — |
-| 5 | — | ⬜ Planned | — |
-| 6 | — | ⬜ Planned | — |
-| 7 | — | ⬜ Planned | — |
-| 8 | — | ⬜ Planned | — |
-| 9 | — | ⬜ Planned | — |
-| 10 | — | ⬜ Planned | — |
-
-**Completed:** 0 / 10
-
----
-
-## Phase 4: Creative Portfolios
+## Phase 6: Creative Portfolios
 
 > 10 pages — agencies, artists, studios, freelancers
 
-| # | Name | Status | Preview |
-|---|---|---|---|
-| 1 | — | ⬜ Planned | — |
-| 2 | — | ⬜ Planned | — |
-| 3 | — | ⬜ Planned | — |
-| 4 | — | ⬜ Planned | — |
-| 5 | — | ⬜ Planned | — |
-| 6 | — | ⬜ Planned | — |
-| 7 | — | ⬜ Planned | — |
-| 8 | — | ⬜ Planned | — |
-| 9 | — | ⬜ Planned | — |
-| 10 | — | ⬜ Planned | — |
-
-**Completed:** 0 / 10
-
----
-
-## Phase 5: E-commerce
-
-> 10 pages — DTC brands, product stores, digital goods, subscriptions
-
-| # | Name | Status | Preview |
-|---|---|---|---|
-| 1 | — | ⬜ Planned | — |
-| 2 | — | ⬜ Planned | — |
-| 3 | — | ⬜ Planned | — |
-| 4 | — | ⬜ Planned | — |
-| 5 | — | ⬜ Planned | — |
-| 6 | — | ⬜ Planned | — |
-| 7 | — | ⬜ Planned | — |
-| 8 | — | ⬜ Planned | — |
-| 9 | — | ⬜ Planned | — |
-| 10 | — | ⬜ Planned | — |
-
-**Completed:** 0 / 10
-
----
-
-## Phase 6: Interactive 3D
-
-> 10 pages — WebGL experiences, Three.js showcases, immersive brand pages
-
-| # | Name | Status | Preview |
+| # | Design Pattern | Status | Preview |
 |---|---|---|---|
 | 1 | — | ⬜ Planned | — |
 | 2 | — | ⬜ Planned | — |
@@ -152,7 +153,7 @@
 
 ## Rejected Pages
 
-| Name | Category | Reason | Date |
+| Pattern | Category | Reason | Date |
 |---|---|---|---|
 | — | — | — | — |
 

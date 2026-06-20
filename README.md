@@ -2,29 +2,31 @@
 
 > A curated showcase of premium AI-generated landing pages — crafted by prompts, powered by AI, designed for impact.
 
-Every page in this repository was generated entirely by AI (Claude, Hermes, Cursor) using structured prompts. No templates. No stock assets. No hand-coding from scratch. Each design is a unique artifact demonstrating what's possible when you treat AI as a design partner.
-
----
-
-## Why This Exists
-
-AI can generate code, but can it generate _great design_? This repo is an experiment:
-
-- Can an AI produce production-grade landing pages with 3D effects, scroll animations, and premium aesthetics?
-- Can a structured prompt framework consistently yield beautiful results?
-- What happens when you push AI past "good enough" and into "I'd ship this"?
-
-Each landing page is a case study in prompt engineering + design quality.
+Every page in this repository was generated entirely by AI using structured prompts. No templates. No stock assets. No hand-coding. Each design is a unique artifact demonstrating what's possible when you treat AI as a design partner.
 
 ---
 
 ## Featured Designs
 
-| Landing Page | Category | Tech | Preview |
+| Design Pattern | Category | Tech | Preview |
 |---|---|---|---|
-| _Coming soon_ | AI SaaS | — | — |
-| _Coming soon_ | Coffee | — | — |
-| _Coming soon_ | Fintech | — | — |
+| [**Operating System**](categories/ai-saas/operating-system/) | AI SaaS | Three.js + CSS | [preview.png](categories/ai-saas/operating-system/preview.png) |
+| _Next up →_ | AI SaaS | — | — |
+
+---
+
+## Why This Exists
+
+Can AI produce production-grade landing pages with 3D effects, scroll animations, and premium aesthetics?
+
+This repo is an experiment in prompt engineering + design quality. Each page is:
+- Generated from a structured prompt (see [PROMPT_FRAMEWORK.md](./PROMPT_FRAMEWORK.md))
+- Documented with the exact prompt that created it (`prompt.md`)
+- Designed to teach: "How is this made?"
+
+The **benchmark page** ([Operating System](categories/ai-saas/operating-system/)) includes full process documentation in `notes.md` — from prompt through design review, wireframe, generation contract, to implementation.
+
+Future pages keep it simple: `index.html`, `prompt.md`, `preview.png`, `notes.md`.
 
 ---
 
@@ -32,20 +34,58 @@ Each landing page is a case study in prompt engineering + design quality.
 
 | # | Category | Pages | Status |
 |---|---|---|---|
-| 1 | **AI SaaS** — AI products, agents, platforms | 10 | ⬜ Planning |
-| 2 | **Coffee** — Cafés, roasters, coffee brands | 10 | ⬜ Planning |
-| 3 | **Fintech** — Banking, investing, payments | 10 | ⬜ Planning |
-| 4 | **Creative Portfolios** — Agencies, artists, studios | 10 | ⬜ Planning |
-| 5 | **E-commerce** — Product stores, DTC brands | 10 | ⬜ Planning |
+| 1 | **AI SaaS** — AI products, agents, platforms | 10 | ✅ 1 / 10 complete |
+| 2 | **Coffee** — Cafés, roasters, coffee culture | 10 | ⬜ Planning |
+| 3 | **Fashion & Luxury** — Watches, sneakers, streetwear | 10 | ⬜ Planning |
+| 4 | **Automotive** — Hypercars, EVs, racing | 10 | ⬜ Planning |
+| 5 | **Fintech** — Banking, investing, payments | 10 | ⬜ Planning |
 | 6 | **Interactive 3D** — WebGL, immersive experiences | 10 | ⬜ Planning |
 
-See [ROADMAP.md](./ROADMAP.md) for progress and [LANDINGS_INDEX.md](./LANDINGS_INDEX.md) for the full catalog.
+---
+
+## Repository Structure
+
+```
+awesome-ai-landings/
+├── README.md
+├── ROADMAP.md
+├── DESIGN_PRINCIPLES.md
+├── PROMPT_FRAMEWORK.md
+├── LANDINGS_INDEX.md
+│
+└── categories/
+    ├── ai-saas/
+    │   ├── operating-system/    ← benchmark page
+    │   │   ├── index.html
+    │   │   ├── prompt.md
+    │   │   ├── preview.png
+    │   │   └── notes.md
+    │   ├── swarm-network/       (planned)
+    │   ├── command-center/      (planned)
+    │   └── ...
+    ├── coffee/                  (planned)
+    ├── fashion/                 (planned)
+    ├── automotive/              (planned)
+    ├── fintech/                 (planned)
+    └── interactive-3d/          (planned)
+```
+
+Each landing page folder contains:
+
+| File | Purpose |
+|---|---|
+| `index.html` | The generated landing page. Self-contained, single file. |
+| `prompt.md` | The exact prompt that created the page. The most valuable artifact. |
+| `preview.png` | Screenshot at 1440×900. Shows the page at a glance. |
+| `notes.md` | Design notes, process learnings, what to steal from this page. |
+
+Folder names describe **design patterns** (e.g. `operating-system`, `sneaker-drop`, `hypercar`) — not fictional companies. Visitors search for effects and techniques, not startup names.
 
 ---
 
 ## How Prompts Are Structured
 
-Every landing page starts with a recipe. The [PROMPT_FRAMEWORK.md](./PROMPT_FRAMEWORK.md) defines 12 parameters that shape each design:
+Every page starts with a recipe. The [PROMPT_FRAMEWORK.md](./PROMPT_FRAMEWORK.md) defines 12 parameters that shape each design:
 
 ```
 Role → Audience → Brand → Visual Style → Color System →
@@ -53,33 +93,20 @@ Layout → Animations → 3D Effects → Sections →
 Interactions → Performance Constraints → Output Requirements
 ```
 
-Each page folder contains:
-```
-category-name/
-  landing-name/
-    index.html       ← the generated page
-    assets/          ← inline styles, external libs
-    prompt.md        ← the exact prompt that created it
-```
-
-The `prompt.md` is the most valuable artifact — it's what makes this reproducible.
+Open any `prompt.md` to see the recipe in action. Feed it to Claude, Hermes, or Cursor to reproduce the page.
 
 ---
 
 ## How to Use
 
-### Browse designs locally
 ```bash
 git clone https://github.com/malackmohammedhassan/awesome-ai-landings.git
 cd awesome-ai-landings
 # Open any index.html in your browser
 ```
 
-### Use with Claude/Hermes/Cursor
-The prompts in this repo are designed to be portable. Open any `prompt.md` and feed it to your AI coding tool of choice. The [PROMPT_FRAMEWORK.md](./PROMPT_FRAMEWORK.md) explains how the recipes work so you can adapt them.
-
 ### Generate a new page
-1. Choose a category and concept
+1. Choose a design pattern and category
 2. Follow the prompt recipe in [PROMPT_FRAMEWORK.md](./PROMPT_FRAMEWORK.md)
 3. Generate with your AI tool of choice
 4. Submit via pull request
@@ -92,7 +119,7 @@ Every landing page must pass:
 
 - ✅ **Unique visual identity** — no two pages look alike
 - ✅ **Responsive** — desktop and mobile
-- ✅ **Lighthouse score > 90** — in all four categories
+- ✅ **Lighthouse score > 90** — all four categories
 - ✅ **Animation** — at least one scroll-triggered animation
 - ✅ **3D effect** — CSS 3D transforms or Three.js
 - ✅ **Premium feel** — would you ship this to a client?
@@ -106,21 +133,20 @@ Full principles in [DESIGN_PRINCIPLES.md](./DESIGN_PRINCIPLES.md).
 
 | Phase | Category | Status |
 |---|---|---|
-| 1 | AI SaaS (10 pages) | ⬜ Not started |
+| 1 | AI SaaS (10 pages) | ✅ 1 / 10 complete |
 | 2 | Coffee (10 pages) | ⬜ Not started |
-| 3 | Fintech (10 pages) | ⬜ Not started |
-| 4 | Creative Portfolios (10 pages) | ⬜ Not started |
-| 5 | E-commerce (10 pages) | ⬜ Not started |
+| 3 | Fashion & Luxury (10 pages) | ⬜ Not started |
+| 4 | Automotive (10 pages) | ⬜ Not started |
+| 5 | Fintech (10 pages) | ⬜ Not started |
 | 6 | Interactive 3D (10 pages) | ⬜ Not started |
 
-See [ROADMAP.md](./ROADMAP.md) for details.
+See [ROADMAP.md](./ROADMAP.md) for details and [LANDINGS_INDEX.md](./LANDINGS_INDEX.md) for the full catalog.
 
 ---
 
 ## Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) (coming soon) for guidelines on:
-
 - Adding a new landing page
 - Using the prompt framework
 - Quality review process

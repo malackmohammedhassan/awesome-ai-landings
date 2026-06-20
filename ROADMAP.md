@@ -1,25 +1,26 @@
 # Roadmap — Awesome AI Landings
 
-> 60 landing pages across 6 categories. Zero templates. All AI-generated, all premium.
+> 60 landing pages across 6 categories. All AI-generated, all premium.
+> Organized by **design pattern**, not company name.
 
 ---
 
-## Phase 1: AI SaaS 🔧 In Progress
+## Phase 1: AI SaaS ✅ 1 / 10 Complete
 
 _10 landing pages — AI platforms, agents, tools_
 
-| # | Name | Status | Preview |
+| # | Design Pattern | Status | Folder |
 |---|---|---|---|
-| 1 | Neural Cloud | ⬜ Planned | — |
-| 2 | Quantum Agent | ⬜ Planned | — |
-| 3 | AgentOS | 🔧 In Progress | — |
-| 4 | Synthetic Workforce | ⬜ Planned | — |
-| 5 | AI Workspace | ⬜ Planned | — |
-| 6 | Cortex API | ⬜ Planned | — |
-| 7 | DeepTrain | ⬜ Planned | — |
-| 8 | VectorMind | ⬜ Planned | — |
-| 9 | PromptForge | ⬜ Planned | — |
-| 10 | Lumen AI | ⬜ Planned | — |
+| 1 | **Operating System** | ✅ **Complete** | [`categories/ai-saas/operating-system/`](categories/ai-saas/operating-system/) |
+| 2 | Swarm Network | ⬜ Planned | — |
+| 3 | Command Center | ⬜ Planned | — |
+| 4 | Autonomous City | ⬜ Planned | — |
+| 5 | Neural Engine | ⬜ Planned | — |
+| 6 | Agent Mesh | ⬜ Planned | — |
+| 7 | Cortex API | ⬜ Planned | — |
+| 8 | Vector Space | ⬜ Planned | — |
+| 9 | Inference Grid | ⬜ Planned | — |
+| 10 | Pipeline Studio | ⬜ Planned | — |
 
 **Milestone:** All 10 pages indexed, responsive, Lighthouse > 90.
 
@@ -27,13 +28,13 @@ _10 landing pages — AI platforms, agents, tools_
 
 ## Phase 2: Coffee ☕ Not started
 
-_10 landing pages — cafés, roasters, coffee brands_
+_10 landing pages — cafés, roasters, coffee culture_
 
-| # | Name | Status | Preview |
+| # | Design Pattern | Status | Folder |
 |---|---|---|---|
-| 1 | — | ⬜ Planned | — |
-| 2 | — | ⬜ Planned | — |
-| 3 | — | ⬜ Planned | — |
+| 1 | Luxury Origin | ⬜ Planned | — |
+| 2 | Volcanic Roast | ⬜ Planned | — |
+| 3 | Mountain Estate | ⬜ Planned | — |
 | 4 | — | ⬜ Planned | — |
 | 5 | — | ⬜ Planned | — |
 | 6 | — | ⬜ Planned | — |
@@ -42,19 +43,19 @@ _10 landing pages — cafés, roasters, coffee brands_
 | 9 | — | ⬜ Planned | — |
 | 10 | — | ⬜ Planned | — |
 
-**Milestone:** Warm, tactile aesthetic. Coffee-first visual language. Rich textures.
+**Milestone:** Warm textures, rich typography, tactile visual language.
 
 ---
 
-## Phase 3: Fintech 💰 Not started
+## Phase 3: Fashion & Luxury 👔 Not started
 
-_10 landing pages — banking, investing, payments, insurance_
+_10 landing pages — luxury goods, apparel, accessories_
 
-| # | Name | Status | Preview |
+| # | Design Pattern | Status | Folder |
 |---|---|---|---|
-| 1 | — | ⬜ Planned | — |
-| 2 | — | ⬜ Planned | — |
-| 3 | — | ⬜ Planned | — |
+| 1 | Luxury Watch | ⬜ Planned | — |
+| 2 | Sneaker Drop | ⬜ Planned | — |
+| 3 | Streetwear | ⬜ Planned | — |
 | 4 | — | ⬜ Planned | — |
 | 5 | — | ⬜ Planned | — |
 | 6 | — | ⬜ Planned | — |
@@ -63,19 +64,19 @@ _10 landing pages — banking, investing, payments, insurance_
 | 9 | — | ⬜ Planned | — |
 | 10 | — | ⬜ Planned | — |
 
-**Milestone:** Trust-focused design. Data visualization. Security-first UI patterns.
+**Milestone:** Editorial photography, full-bleed hero, minimalist typography.
 
 ---
 
-## Phase 4: Creative Portfolios 🎨 Not started
+## Phase 4: Automotive 🏎️ Not started
 
-_10 landing pages — agencies, artists, studios, freelancers_
+_10 landing pages — hypercars, EVs, racing, transport_
 
-| # | Name | Status | Preview |
+| # | Design Pattern | Status | Folder |
 |---|---|---|---|
-| 1 | — | ⬜ Planned | — |
-| 2 | — | ⬜ Planned | — |
-| 3 | — | ⬜ Planned | — |
+| 1 | Hypercar | ⬜ Planned | — |
+| 2 | EV Future | ⬜ Planned | — |
+| 3 | Racing | ⬜ Planned | — |
 | 4 | — | ⬜ Planned | — |
 | 5 | — | ⬜ Planned | — |
 | 6 | — | ⬜ Planned | — |
@@ -84,15 +85,15 @@ _10 landing pages — agencies, artists, studios, freelancers_
 | 9 | — | ⬜ Planned | — |
 | 10 | — | ⬜ Planned | — |
 
-**Milestone:** Bold typography, full-bleed media, expressive layouts.
+**Milestone:** Speed-focused design, dynamic angles, dark polished surfaces.
 
 ---
 
-## Phase 5: E-commerce 🛍️ Not started
+## Phase 5: Fintech 💰 Not started
 
-_10 landing pages — DTC brands, product stores, digital goods_
+_10 landing pages — banking, investing, payments, crypto_
 
-| # | Name | Status | Preview |
+| # | Design Pattern | Status | Folder |
 |---|---|---|---|
 | 1 | — | ⬜ Planned | — |
 | 2 | — | ⬜ Planned | — |
@@ -105,7 +106,7 @@ _10 landing pages — DTC brands, product stores, digital goods_
 | 9 | — | ⬜ Planned | — |
 | 10 | — | ⬜ Planned | — |
 
-**Milestone:** Product-first layout. Add-to-cart flow. Conversion-optimized.
+**Milestone:** Trust-first UI, data viz, security-forward design patterns.
 
 ---
 
@@ -113,7 +114,7 @@ _10 landing pages — DTC brands, product stores, digital goods_
 
 _10 landing pages — WebGL, Three.js, immersive experiences_
 
-| # | Name | Status | Preview |
+| # | Design Pattern | Status | Folder |
 |---|---|---|---|
 | 1 | — | ⬜ Planned | — |
 | 2 | — | ⬜ Planned | — |
@@ -126,7 +127,7 @@ _10 landing pages — WebGL, Three.js, immersive experiences_
 | 9 | — | ⬜ Planned | — |
 | 10 | — | ⬜ Planned | — |
 
-**Milestone:** WebGL-first. Mouse-tracked 3D scenes. GPU-accelerated. Sub-5MB payloads.
+**Milestone:** WebGL-first. GPU-accelerated. Sub-5MB payloads. Mouse-tracked 3D.
 
 ---
 
@@ -134,13 +135,13 @@ _10 landing pages — WebGL, Three.js, immersive experiences_
 
 | Phase | Status | Pages Done |
 |---|---|---|
-| 1 — AI SaaS | 🔧 In Progress | 0 / 10 |
+| 1 — AI SaaS | ✅ In Progress | 1 / 10 |
 | 2 — Coffee | ⬜ Planning | 0 / 10 |
-| 3 — Fintech | ⬜ Planning | 0 / 10 |
-| 4 — Creative Portfolios | ⬜ Planning | 0 / 10 |
-| 5 — E-commerce | ⬜ Planning | 0 / 10 |
+| 3 — Fashion & Luxury | ⬜ Planning | 0 / 10 |
+| 4 — Automotive | ⬜ Planning | 0 / 10 |
+| 5 — Fintech | ⬜ Planning | 0 / 10 |
 | 6 — Interactive 3D | ⬜ Planning | 0 / 10 |
-| **Total** | | **0 / 60** |
+| **Total** | | **1 / 60** |
 
 ---
 
