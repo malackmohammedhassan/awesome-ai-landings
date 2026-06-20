@@ -213,49 +213,47 @@ AgentOS started as an internal tool at a frontier AI lab. Engineers needed a uni
 
 ## 3D Effects
 
-### Hero Scene — Three.js (primary)
+### Hero Scene — Three.js (Lightweight)
 
 **Setup:**
 - Renderer: WebGL with antialiasing, `alpha: true`, `setPixelRatio(Math.min(window.devicePixelRatio, 2))`
 - Scene: dark background matching `--bg-primary`
-- Camera: PerspectiveCamera with slight initial angle (15° offset from center)
+- Camera: PerspectiveCamera, fixed position — no orbit controls
 
-**Objects (3–5 floating geometric orbs):**
-- Mix of icosahedrons, octahedrons, and dodecahedrons
-- Sizes: 0.8–1.5 units radius
+**Objects — 3 agent nodes:**
+- 3 IcosahedronGeometry nodes (radius 1.0–1.2)
 - Colors: primary (#6C5CE7), secondary (#00CEC9), white (semi-transparent)
-- Materials: MeshPhysicalMaterial with `roughness: 0.2`, `metalness: 0.8`, `transmission: 0.3`, `clearcoat: 0.4`
-- Each orb has a subtle wireframe overlay (slightly larger, opacity 0.2)
-- Orb rotation: 0.005–0.015 rad/frame on Y and X axes (different rates per orb)
+- Materials: MeshPhysicalMaterial with `roughness: 0.2`, `metalness: 0.8`, `transmission: 0.3`
+- Each node has a subtle wireframe overlay (slightly larger, opacity 0.15)
+- Node rotation: 0.01 rad/frame on Y axis (constant, different rates)
+- Gentle float: sinusoidal translateY oscillation (±0.15 units, 3s cycle, random phase)
 
-**Particle system:**
-- ~200 luminous dots in a spherical distribution around the orbs
-- Colors: blend of primary and secondary
-- Size: 2–4px, opacity 0.3–0.8
-- Connected by lines when particles are within 3 units of each other (semi-transparent, 0.5px)
-- Particles have subtle velocity (drift in random directions, 0.001 units/frame)
+**Particle field — lightweight (~60 particles):**
+- ~60 dots in a spherical distribution around the scene
+- Colors: primary and secondary blend
+- Size: 2–5px, opacity 0.2–0.6
+- Static positions (no drift) — cheaper than animated particles
+- No particle-to-particle proximity connections
 
-**Energy threads between orbs:**
-- Bezier curves connecting certain orb pairs
-- Animated opacity: pulse between 0.3–1.0 over 2–3s (different phase per connection)
-- Color: lerp between the two connected orbs' colors
-- Line width: 1px with glow effect (secondary slightly transparent line underneath)
+**Connecting lines:**
+- Simple straight lines between the 3 nodes (2–3 lines)
+- LineBasicMaterial, opacity 0.3
+- Subtle opacity pulse (0.2 → 0.5 → 0.2, 4s cycle)
 
-**Mouse interaction:**
-- Camera orbits target by ±0.3 radians on Y, ±0.15 on X based on normalized mouse position
-- Smooth lerp (0.05 factor) — the camera doesn't snap, it glides
-- Orbs subtly gravitate toward cursor in 2D screen space (very subtle, 0.1 unit max displacement)
-- Mouse inactivity (3s): orbs resume gentle float animation
+**Mouse interaction — CSS perspective only:**
+- The Three.js container is wrapped in a div with `perspective: 800px`
+- On mousemove, the container rotates ±2deg via CSS transform
+- This is a CSS transform on a div — not a Three.js camera operation
+- Zero JS math, zero performance cost, same visual effect
 
 **Scroll interaction:**
-- As user scrolls, the 3D scene scales down (transform: scale from 1 to 0.7) and fades (opacity: 1 to 0.3)
-- At 100% scroll of hero section, scene is fully faded
-- Capped at hero section height — no 3D rendering below the fold (saves performance)
+- Scene opacity fades from 1 to 0 as hero scrolls past viewport
+- Capped at hero section height — no 3D rendering below fold
 
 **Fallback (if WebGL unavailable):**
-- Replace Three.js scene with CSS-only animated gradient mesh
-- 3–4 floating CSS circles with `border-radius: 50%` + `backdrop-filter: blur()` + slow translateY animation
-- Particle connections become impossible, but the visual emptiness is filled by CSS shapes
+- Replace Three.js canvas with 3 floating CSS circles
+- `border-radius: 50%` + `backdrop-filter: blur()` + slow translateY animation
+- Gradient colors matching the brand palette
 
 ### Feature Cards — CSS 3D (secondary)
 
@@ -299,9 +297,8 @@ border-radius: 16px;
 |---|---|---|
 | **Progress bar** | Fixed top `<div>` | 3px height, gradient-bg (primary → secondary), width scales from 0% to 100% based on `scrollY / (docHeight - winHeight)` |
 | **Navbar transform** | IntersectionObserver on hero | Transparent bg → glass bg + shadow once hero exits viewport. Smooth 300ms transition. |
-| **Section reveals** | IntersectionObserver (85% threshold) | Each section animates in using `clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%)` → `polygon(0 0, 100% 0, 100% 100%, 0 100%)` over 800ms, ease `cubic-bezier(0.16, 1, 0.3, 1)` |
+| **Section reveals** | IntersectionObserver (15% threshold) | Each section fades up: `opacity: 0, translateY(30px)` → `opacity: 1, translateY(0)` over 700ms, ease `cubic-bezier(0.16, 1, 0.3, 1)` |
 | **Counter animation** | IntersectionObserver on stats section | Numbers count from 0 to final value over 2s using `requestAnimationFrame` with easeOutCubic |
-| **Parallax depth** | Hero scene and background | Three.js scene has layered depth; hero background grid moves at 0.2x scroll speed, orbs at 0.5x, content at 1x |
 | **Scroll-to-top** | FAB appears after 50% scroll | Circular button with arrow icon, smooth `window.scrollTo({ top: 0, behavior: 'smooth' })`, fades in/out 300ms |
 
 **Progress bar code pattern:**
@@ -335,11 +332,11 @@ document.querySelectorAll('.section-reveal').forEach(el => observer.observe(el))
 
 | Interaction | Behaviour | Implementation |
 |---|---|---|
-| **Magnetic buttons** | CTA buttons subtly follow cursor | JS tracks mouse position relative to button center, applies `transform: translate(dx * 0.2, dy * 0.2)` with 100ms transition |
-| **Mouse glow** | Radial gradient spotlight follows cursor in hero | `mousemove` listener updates CSS custom properties `--mouse-x`, `--mouse-y` on hero container; used in `radial-gradient()` for a subtle light sweep |
-| **Card tilt** | Feature cards tilt on hover | JS calculates mouse position within card, applies `rotateY` and `rotateX` proportional to distance from center (max ±8deg) |
-| **3D scene orbit** | Three.js camera follows mouse | Normalized mouse position maps to camera orbit target (lerp factor 0.05 for smoothness) |
-| **Nav link underline** | Hover reveals animated underline | CSS-only: `background-size: 0% 2px` → `100% 2px` on hover, 300ms ease, using `linear-gradient` background |
+| **CSS scene tilt** | Three.js container rotates ±2deg via CSS `perspective` + `transform` | Pure CSS on mousemove — zero JS cost |
+| **Card hover lift** | Feature cards lift on hover (`translateY(-4px)` + glow) | CSS transition — 300ms ease-out |
+| **Nav link underline** | Hover reveals animated underline | CSS-only: `background-size` technique, 300ms ease |
+| **CTA hover** | Button scales 1.03 + shadow increase | CSS transition — 200ms ease-out |
+| **3D scene orbit** | Removed — CSS perspective rotation is sufficient for page #1 | — |
 
 **Important:** All mouse interactions must degrade gracefully on touch devices. No hover-dependent content. Touch users get the same information without the effects.
 
@@ -362,25 +359,30 @@ document.querySelectorAll('.section-reveal').forEach(el => observer.observe(el))
 
 Each section (except hero) uses:
 ```css
-.section-reveal {
+.reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.section-reveal.revealed {
+.reveal.revealed {
   opacity: 1;
   transform: translateY(0);
 }
 ```
 
-Child elements within a section can stagger:
+Implementation:
 ```javascript
-// After section reveals, stagger children with 100ms delay each
-children.forEach((el, i) => {
-  el.style.transitionDelay = `${i * 100}ms`;
-});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 ```
 
 ### Feature Cards Entrance
@@ -394,10 +396,9 @@ Cards in the feature grid enter with stagger (index × 100ms delay):
 
 | Element | Animation | Duration | Notes |
 |---|---|---|---|
-| Hero orbs | translateY oscillation (±8px) | 4s, sine wave | Random phase per orb |
-| Particle lines | Opacity pulse (0.6 → 1.0 → 0.6) | 3s | Each connection has unique phase |
-| Background grid | Slow horizontal pan | 20s | CSS translateX infinite loop |
-| Button glow | Subtle box-shadow pulse | 3s | Only on primary CTA, intensity ±10% |
+| Hero nodes | translateY oscillation (±0.15 units) | 3s, sine wave | Random phase per node |
+| Connecting lines | Opacity pulse (0.2 → 0.5 → 0.2) | 4s | — |
+| Button glow | Subtle box-shadow pulse | 3s | Only on primary CTA |
 | Stats counter digits | Count-up on scroll trigger | 2s | Once per session |
 
 ### Hover States
@@ -662,14 +663,12 @@ Design: Minimal, small text (0.875rem), reduced opacity
 | Page load | Auto | Hero entrance stagger (1.3s timeline) |
 | Scroll past hero | Scroll | Navbar transparent → glass |
 | Scroll progress | Scroll | Top progress bar fills |
-| Section enters viewport | Scroll | Clip-path reveal animation |
+| Section enters viewport | Scroll | Fade-up reveal animation |
 | Stats in view | Scroll | Numbers count up from 0 |
-| Mouse move in hero | Mouse | 3D scene camera orbits + glow follow |
-| Mouse move on card | Mouse | 3D tilt rotateY/X |
-| Mouse move on CTA | Mouse | Magnetic pull toward cursor |
-| Mouse hover on CTA | Hover | Scale + glow + brightness |
+| Mouse move in hero | Mouse | CSS perspective container rotates ±2deg |
+| Mouse hover on CTA | Hover | Scale + shadow increase |
 | Hover nav link | Hover | Underline slide-in |
-| Hover feature card | Hover | Lift + glow border |
+| Hover feature card | Hover | Lift (+4px) + glow border |
 | Click CTA | Click | Smooth scroll to waitlist |
 | Touch (mobile) | Tap | All interactions work without hover |
 | prefers-reduced-motion | System | All animations disabled, content static |
@@ -682,12 +681,12 @@ Design: Minimal, small text (0.875rem), reduced opacity
 |---|---|
 | **Critical CSS** | All above-the-fold styles inlined in `<head>` within `<style>` block |
 | **JavaScript** | All JS deferred: `<script defer>` for external, at end of `<body>` for inline |
-| **External requests** | Maximum 4: Google Fonts (1), Three.js (1), no others |
-| **Three.js CDN** | `https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js` or `https://unpkg.com/three@0.160.0/build/three.module.js` |
+| **External requests** | Maximum 3: Google Fonts (2 requests), Three.js (1) |
+| **Three.js CDN** | `https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js` |
 | **No external images** | Zero `<img>` tags. Everything is CSS, SVG, or Three.js. |
 | **Font embedding** | Preconnect + subset to used weights only |
-| **Total page weight** | < 500 KB total (HTML + CSS + JS + fonts) |
-| **Lighthouse target** | > 90 Performance, > 95 Accessibility, > 95 Best Practices, > 95 SEO |
+| **Total page weight** | < 200 KB total (HTML + CSS + JS + fonts) |
+| **Lighthouse target** | > 90 Performance, > 90 Accessibility, > 90 Best Practices, > 90 SEO |
 | **GPU compositing** | Animations only use `transform`, `opacity`, `clip-path` — never layout-triggering properties |
 | **Three.js pixel ratio** | `renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))` |
 | **WebGL fallback** | CSS gradient + floating elements if Three.js fails to load |
@@ -706,8 +705,8 @@ Design: Minimal, small text (0.875rem), reduced opacity
 6. **Accessibility:** Skip-to-content link, ARIA labels, focus indicators, `prefers-reduced-motion`, semantic landmarks, alt text on functional SVGs.
 7. **Design uniqueness:** Page must not resemble any template, Tailwind UI component, or other demo. It must be visually original while feeling professionally familiar.
 8. **No paid assets:** Everything must be free — Google Fonts, open-source CDN libraries. Zero attribution-required resources.
-9. **Production-ready:** Remove all comments, debugging code, placeholder text. Every element must look final.
-10. **Size constraint:** `<style>` block must efficiently group shared styles. No unnecessary duplication. Use CSS custom properties for consistency.
+9. **Single-file constraint:** `<style>` block must efficiently group shared styles. No unnecessary duplication. Use CSS custom properties for consistency.
+10. **Zero inline styles:** No `style=""` attributes anywhere.
 
 ---
 
